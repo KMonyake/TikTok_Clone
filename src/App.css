@@ -1,38 +1,152 @@
-.App {
-  text-align: center;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400&display=swap');
+
+:root{
+  --blackish: #2a2a2a;
+  --radius: 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+html{
+  scroll-snap-type: y mandatory;
+}
+
+main{
+  height: 100vh;
+  width: 100vw;
+  padding: 2rem 0;
+  background-color: var(--blackish);
+
+  display: grid;
+  place-items: center;
+}
+
+.videos-container{
+  height: 100%;
+  max-width: 500px;
+  overflow: scroll;
+  scroll-snap-type: y mandatory;
+  border-radius: var(--radius);
+}
+
+.videos-container{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/*=========================================================*/
+                        /* video */
+/*=========================================================*/
+
+.video-card{
+    height: 100%;
+    width: 100%;
+    scroll-snap-align: start;
+    
+    position: relative;
+  }
+  
+  .video{
+    height: 100%;
+    width: 100%;
+    background-color: var(--blackish);
+
+    object-fit: fill;
+}
+
+/*=========================================================*/
+                        /* footer */
+/*=========================================================*/
+
+footer{
+  height: 13vh;
+  width: 100%;
+  color: white;
+  padding: 0.5rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
+
+footer section{
+  line-height: 1.3rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.fa-compact-disc{
+  font-size: 2.5rem;
+  animation: spin infinite linear;
+}
+
+@keyframes spin{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.fa-music{
+  margin-top: 0.5rem;
+  position: absolute;
+  top: 3rem;
+}
+
+.ticker{ 
+  width: 100%;
+  margin-top: 0.2rem;
+  margin-left: 1.5rem;
+
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+/*=========================================================*/
+                        /* sidebar */
+/*=========================================================*/
+
+aside{
+  height: 25vh;
+  margin-right: 0.5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  position:absolute;
+  top: 35vh;
+  right: 0;
+  z-index: 1;
+}
+
+.icon{
+  font-size: 2rem;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.icon a{
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.icon p{
+  font-size: 0.8rem;
+  color: white;
 }
